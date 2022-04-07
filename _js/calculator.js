@@ -1,10 +1,17 @@
 function insert(num) {
-    var numero = document.getElementById('resultado').innerHTML;
-    document.getElementById('resultado').innerHTML = numero + num;
+    $(function(){
+        var numero = document.getElementById('resultado').innerHTML;
+        document.getElementById('resultado').innerHTML = numero + num;
+        $('#resultado').css({color: 'black', 'text-align': 'right', background: 'white'});
+    });
 }
 
 function clean() {
-    document.getElementById('resultado').innerHTML = "";
+    $(function(){
+        document.getElementById('resultado').innerHTML = "";
+        $('#resultado').css("background", "white");
+    });
+
 }
 
 function back() {
@@ -18,6 +25,11 @@ function calcular() {
         document.getElementById('resultado').innerHTML = eval(resultado);
     }
     else {
-        document.getElementById('resultado').innerHTML = "I'm sorry Dave, I'm afraid I can't do that";
+        $(function(){
+            $('#resultado').css({color: 'red', 'text-align': 'center', background: 'black'}).fadeOut(0);
+            var msg = "I'm sorry, I'm afraid I can't do that";
+            document.getElementById('resultado').innerHTML = msg;
+            $('#resultado').fadeIn(3000);
+        });       
     }
 }
