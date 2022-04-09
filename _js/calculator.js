@@ -1,35 +1,34 @@
-function insert(num) {
-    $(function(){
-        var numero = document.getElementById('resultado').innerHTML;
-        document.getElementById('resultado').innerHTML = numero + num;
-        $('#resultado').css({color: 'black', 'text-align': 'right', background: 'white'});
-    });
-}
-
-function clean() {
-    $(function(){
-        document.getElementById('resultado').innerHTML = "";
-        $('#resultado').css("background", "white");
+$(function () {
+    $('.botao').click(function () {
+        var vat = $('#resultado').text();
+        var vnv = $(this).text();
+        var atl = `${vat}${vnv}`;
+        $('#resultado').text(atl);
+        $('#resultado').css({ color: 'black', 'text-align': 'right', background: 'white' });
     });
 
-}
+    $('.clear').click(function () {
+        $('#resultado').text("");
+        $('#resultado').css({ color: 'black', 'text-align': 'right', background: 'white' });
+    });
 
-function back() {
-    var resultado = document.getElementById('resultado').innerHTML;
-    document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length-1);
-}
+    $('.back').click(function () {
+        var r = $('#resultado').text();
+        var v = r.substring(0, $('#resultado').text().length - 1);
+        $('#resultado').text(v);
+    });
 
-function calcular() {
-    var resultado = document.getElementById('resultado').innerHTML;
-    if (resultado) {
-        document.getElementById('resultado').innerHTML = eval(resultado);
-    }
-    else {
-        $(function(){
-            $('#resultado').css({color: 'red', 'text-align': 'center', background: 'black'}).fadeOut(0);
+    $('.answer').click(function () {
+        var res = $('#resultado').text();
+
+        if (res) {
+            var r = eval($('#resultado').text());
+            $('#resultado').text(r);
+        } else {
+            $('#resultado').css({ color: 'red', 'text-align': 'center', background: 'black' }).fadeOut(0);
             var msg = "I'm sorry, I'm afraid I can't do that";
-            document.getElementById('resultado').innerHTML = msg;
+            $('#resultado').text(msg);
             $('#resultado').fadeIn(3000);
-        });       
-    }
-}
+        }
+    });
+});
