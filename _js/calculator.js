@@ -20,9 +20,8 @@ $(function () {
 
     $('.answer').click(function () {
         var res = $('#resultado').text();
-
-        if (res) {
-            var r = eval($('#resultado').text());
+        if (eval(res) != Infinity && res != '') {
+            var r = eval(res);
             $('#resultado').text(r);
         } else {
             $('#resultado').css({ color: 'red', 'text-align': 'center', background: 'black' }).fadeOut(0);
