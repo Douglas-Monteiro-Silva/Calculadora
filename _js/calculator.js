@@ -1,10 +1,19 @@
 $(function () {
     $('.botao').click(function () {
+        var msg = "I'm sorry, I'm afraid I can't do that";
         var vat = $('#resultado').text();
-        var vnv = $(this).text();
-        var atl = `${vat}${vnv}`;
-        $('#resultado').text(atl);
-        $('#resultado').css({ color: 'black', 'text-align': 'right', background: 'white' });
+        console.log(vat!=msg);
+        if (vat!=msg) {
+            var vnv = $(this).text();
+            var atl = `${vat}${vnv}`;
+            $('#resultado').text(atl);
+            $('#resultado').css({ color: 'black', 'text-align': 'right', background: 'white' });
+        } else {
+            var vnv = $(this).text();
+            $('#resultado').text('');
+            $('#resultado').text(vnv);
+            $('#resultado').css({ color: 'black', 'text-align': 'right', background: 'white' });
+        }
     });
 
     $('.clear').click(function () {
