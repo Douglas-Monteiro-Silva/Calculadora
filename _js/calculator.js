@@ -2,8 +2,8 @@ $(function () {
     $('.botao').click(function () {
         var msg = "I'm sorry, I'm afraid I can't do that";
         var vat = $('#resultado').text();
-        console.log(vat!=msg);
-        if (vat!=msg) {
+        console.log(vat != msg);
+        if (vat != msg) {
             var vnv = $(this).text();
             var atl = `${vat}${vnv}`;
             $('#resultado').text(atl);
@@ -29,10 +29,10 @@ $(function () {
 
     $('.answer').click(function () {
         var res = $('#resultado').text();
-        if (eval(res) != Infinity && res != '') {
+        if (eval(res) != Infinity) {
             var r = eval(res);
             $('#resultado').text(r);
-        } else {
+        } else if (res != '') {
             $('#resultado').css({ color: 'red', 'text-align': 'center', background: 'black' }).fadeOut(0);
             var msg = "I'm sorry, I'm afraid I can't do that";
             $('#resultado').text(msg);
