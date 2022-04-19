@@ -28,7 +28,7 @@ $(function () {
 
     $('.answer').click(function () {
         var res = $('#resultado').text();
-        if (eval(res) != Infinity) {
+        if (eval(res) != Infinity && !Number.isNaN(eval(res))) {
             var r = eval(res);
             $('#resultado').text(r);
         } else if (res != '') {
